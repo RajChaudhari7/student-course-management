@@ -17,6 +17,8 @@ app.config["UPLOAD_FOLDER"] = "static/uploads/profile"
 
 app.config.from_object(Config)
 
+app.config["MYSQL_PORT"] = Config.MYSQL_PORT
+
 mysql.init_app(app)
 
 app.register_blueprint(auth)
