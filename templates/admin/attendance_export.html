@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow border-0">
+
+    <div class="card-header bg-primary text-white">
+
+        <h3>
+            <i class="bi bi-download"></i>
+            Export Attendance
+        </h3>
+
+    </div>
+
+    <div class="card-body">
+
+        <form method="GET">
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <label>Select Date</label>
+
+                    <input type="date" name="date" class="form-control" required>
+
+                </div>
+
+            </div>
+
+            <br>
+
+            <button formaction="/admin/export/attendance/excel" class="btn btn-success">
+
+                <i class="bi bi-file-earmark-excel"></i>
+
+                Export Excel
+
+            </button>
+
+            <button formaction="/admin/export/attendance/pdf" class="btn btn-danger">
+
+                <i class="bi bi-file-earmark-pdf"></i>
+
+                Export PDF
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

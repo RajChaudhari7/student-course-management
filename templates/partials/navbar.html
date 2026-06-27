@@ -1,0 +1,43 @@
+<nav class="navbar bg-white shadow-sm">
+
+    <div class="container-fluid">
+
+        <h4>
+
+            {% if session.get('admin') %}
+
+            Admin Dashboard
+
+            {% elif session.get('student') %}
+
+            Student Dashboard
+
+            {% endif %}
+
+        </h4>
+
+        <div>
+
+            <span class="fw-bold">
+
+                {% if session.get('admin_name') %}
+
+                Welcome, {{ session['admin_name'] }}
+
+                {% elif session.get('student_name') %}
+
+                Welcome, {{ session['student_name'] }}
+
+                {% else %}
+
+                Welcome
+
+                {% endif %}
+
+            </span>
+
+        </div>
+
+    </div>
+
+</nav>

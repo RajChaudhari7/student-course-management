@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Assign Course</h2>
+
+<form method="POST">
+
+    <div class="mb-3">
+
+        <label>Student</label>
+
+        <select class="form-select" name="student_id" required>
+
+            <option value="">Select Student</option>
+
+            {% for student in students %}
+
+            <option value="{{student[0]}}">
+                {{student[1]}}
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label>Course</label>
+
+        <select class="form-select" name="course_id" required>
+
+            <option value="">Select Course</option>
+
+            {% for course in courses %}
+
+            <option value="{{course[0]}}">
+                {{course[1]}}
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+    </div>
+
+    <button class="btn btn-success">
+
+        Assign Course
+
+    </button>
+
+</form>
+
+{% endblock %}

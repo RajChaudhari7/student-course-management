@@ -1,0 +1,74 @@
+<div class="sidebar">
+
+    <h3 class="logo">
+
+        <i class="bi bi-mortarboard-fill"></i>
+
+        Student Course
+        Management
+
+    </h3>
+
+    <hr>
+
+    {% if session.get('admin') %}
+
+    <!-- Admin Menu -->
+
+    <a href="/admin/dashboard"><i class="bi bi-speedometer2"></i> Dashboard</a>
+    <a href="/admin/students"><i class="bi bi-people-fill"></i> Students</a>
+    <a href="/admin/courses"><i class="bi bi-book-fill"></i> Courses</a>
+    <a href="/admin/enroll"><i class="bi bi-person-plus-fill"></i> Assign Course</a>
+    <a href="/admin/enrollments"><i class="bi bi-journal-check"></i> Enrollments</a>
+    <a href="/admin/attendance"><i class="bi bi-calendar-check"></i>Attendance</a>
+    <a href="/admin/marks/list"><i class="bi bi-journal-text"></i>Marks</a>
+    <a href="/admin/export/attendance"><i class="bi bi-calendar-check"></i>Attendance Report</a>
+
+    {% elif session.get('student') %}
+
+    <a href="/student/dashboard">
+        <i class="bi bi-house-fill"></i>
+        Dashboard
+    </a>
+
+    <a href="/student/profile">
+        <i class="bi bi-person-fill"></i>
+        My Profile
+    </a>
+
+    <a href="/student/change-password">
+        <i class="bi bi-shield-lock-fill"></i>
+        Change Password
+    </a>
+
+    <a href="/student/id-card">
+        <i class="bi bi-credit-card-2-front-fill"></i>
+        Download ID Card
+    </a>
+
+    <a href="/student/attendance">
+
+        <i class="bi bi-calendar-check"></i>
+
+        Attendance
+
+    </a>
+
+    <a href="/student/marks">
+        <i class="bi bi-journal-check"></i>
+        My Marksheet
+    </a>
+
+    {% endif %}
+
+    <hr>
+
+    <a href="/logout">
+
+        <i class="bi bi-box-arrow-right"></i>
+
+        Logout
+
+    </a>
+
+</div>

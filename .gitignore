@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+
+# Environment Variables
+.env
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Python Cache
+.pytest_cache/
+.mypy_cache/
+
+# Flask
+instance/
+.flaskenv
+
+# Logs
+*.log
+
+# Database Files (if using SQLite)
+*.db
+*.sqlite3
+
+# Build Files
+build/
+dist/
+*.egg-info/
+
+# Temporary Files
+*.tmp
+*.temp
+
+# Generated PDFs (Optional)
+exports/*.pdf
+
+# Generated Excel Files (Optional)
+exports/*.xlsx
+
+# Uploaded Files (Optional)
+uploads/
+
+# Coverage Reports
+htmlcov/
+.coverage
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Secrets
+config_local.py

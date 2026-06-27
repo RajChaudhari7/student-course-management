@@ -1,0 +1,615 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+
+
+    <div class="card border-0 shadow mb-4">
+
+        <div class="card-body">
+
+            <h3>
+
+                Welcome Admin 👋
+
+            </h3>
+
+            <p class="text-muted">
+
+                Manage students, courses, attendance and marks from one place.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="card glass-card mb-4">
+
+        <div class="card-header">
+
+            <h5>⚡ Quick Actions</h5>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row g-3">
+
+                <div class="col-md-3">
+
+                    <a href="/admin/student/add" class="btn btn-primary w-100">
+
+                        <i class="bi bi-person-plus-fill"></i>
+
+                        Add Student
+
+                    </a>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <a href="/admin/course/add" class="btn btn-success w-100">
+
+                        <i class="bi bi-book-fill"></i>
+
+                        Add Course
+
+                    </a>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <a href="/admin/attendance" class="btn btn-warning w-100">
+
+                        <i class="bi bi-calendar-check"></i>
+
+                        Attendance
+
+                    </a>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <a href="/admin/marks/list" class="btn btn-danger w-100">
+
+                        <i class="bi bi-journal-check"></i>
+
+                        Marks
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card glass-card mb-4">
+
+        <div class="card-body text-center">
+
+            <div class="profile-avatar">
+
+                <i class="bi bi-person-fill"></i>
+
+            </div>
+
+            <h4 class="mt-3">
+
+                Administrator
+
+            </h4>
+
+            <p class="text-muted">
+
+                Student Course Management System
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="dashboard-card bg-students p-4">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <div>
+
+                        <h6>Total Students</h6>
+
+                        <h2>{{ students }}</h2>
+
+                    </div>
+
+                    <i class="bi bi-people-fill dashboard-icon"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="dashboard-card bg-courses p-4">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <div>
+
+                        <h6>Total Courses</h6>
+
+                        <h2>{{ courses }}</h2>
+
+                    </div>
+
+                    <i class="bi bi-book-fill dashboard-icon"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="dashboard-card bg-attendance p-4">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <div>
+
+                        <h6>Attendance</h6>
+
+                        <h2>{{ attendance }}</h2>
+
+                    </div>
+
+                    <i class="bi bi-calendar-check dashboard-icon"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+
+            <div class="dashboard-card bg-marks p-4">
+
+                <div class="d-flex justify-content-between align-items-center">
+
+                    <div>
+
+                        <h6>Marks</h6>
+
+                        <h2>{{ marks }}</h2>
+
+                    </div>
+
+                    <i class="bi bi-award-fill dashboard-icon"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr class="my-5">
+
+    <div class="row">
+
+        <div class="col-lg-6">
+
+            <div class="card glass-card">
+
+                <div class="card-header bg-primary text-white">
+
+                    Recent Students
+
+                </div>
+
+                <div class="card-body">
+
+                    <table class="table table-hover">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Name</th>
+
+                                <th>Department</th>
+
+                                <th>Semester</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            {% for student in recent_students %}
+
+                            <tr>
+
+                                <td>{{ student.full_name }}</td>
+
+                                <td>{{ student.department }}</td>
+
+                                <td>{{ student.semester }}</td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="card glass-card">
+
+                <div class="card-header bg-success text-white">
+
+                    Recent Courses
+
+                </div>
+
+                <div class="card-body">
+
+                    <table class="table table-hover">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Course</th>
+
+                                <th>Code</th>
+
+                                <th>Credits</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            {% for course in recent_courses %}
+
+                            <tr>
+
+                                <td>{{ course.course_name }}</td>
+
+                                <td>{{ course.course_code }}</td>
+
+                                <td>{{ course.credits }}</td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row mt-5">
+
+        <div class="col-lg-8">
+
+            <div class="card glass-card">
+
+                <div class="card-header">
+
+                    Statistics
+
+                </div>
+
+                <div class="card-body">
+
+                    <canvas id="barChart"></canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="card glass-card">
+
+                <div class="card-header">
+
+                    Distribution
+
+                </div>
+
+                <div class="card-body">
+
+                    <canvas id="pieChart"></canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card glass-card mt-4">
+
+        <div class="card-header">
+
+            Monthly Analytics
+
+        </div>
+
+        <div class="card-body">
+
+            <canvas id="analyticsChart"></canvas>
+
+        </div>
+
+    </div>
+
+    <div class="row mt-4">
+
+        <div class="col-lg-6">
+
+            <div class="card glass-card">
+
+                <div class="card-header bg-success text-white">
+
+                    🏆 Top Performing Students
+
+                </div>
+
+                <div class="card-body">
+
+                    <table class="table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Student</th>
+
+                                <th>Average Marks</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            {% for student in top_students %}
+
+                            <tr>
+
+                                <td>{{ student.full_name }}</td>
+
+                                <td>
+
+                                    <span class="badge bg-success">
+
+                                        {{ student.average_marks }}
+
+                                    </span>
+
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="col-lg-6">
+
+            <div class="card glass-card">
+
+                <div class="card-header bg-info text-white">
+
+                    📅 Today's Attendance
+
+                </div>
+
+                <div class="card-body text-center">
+
+                    <h1>
+
+                        {{ today_attendance }}
+
+                    </h1>
+
+                    <h5>
+
+                        Attendance Records Today
+
+                    </h5>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row mt-4">
+
+        <div class="col-lg-6">
+
+            <div class="card glass-card">
+
+                <div class="card-header">
+
+                    📅 Calendar
+
+                </div>
+
+                <div class="card-body text-center">
+
+                    <h3 id="todayDate"></h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="card glass-card">
+
+                <div class="card-header">
+
+                    💾 Database Status
+
+                </div>
+
+                <div class="card-body">
+
+                    <h3 class="text-success">
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Connected
+
+                    </h3>
+
+                    <p>
+
+                        MySQL connection is active.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card glass-card mt-4">
+
+        <div class="card-header bg-dark text-white">
+
+            🔔 Recent Activity
+
+        </div>
+
+        <div class="card-body">
+
+            <ul class="list-group">
+
+                <li class="list-group-item">
+
+                    ✅ Students Registered : {{ students }}
+
+                </li>
+
+                <li class="list-group-item">
+
+                    📚 Courses Available : {{ courses }}
+
+                </li>
+
+                <li class="list-group-item">
+
+                    📝 Marks Records : {{ marks }}
+
+                </li>
+
+                <li class="list-group-item">
+
+                    📅 Attendance Records : {{ attendance }}
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="row mt-4">
+
+        <div class="col-md-6">
+
+            <div class="card glass-card">
+
+                <div class="card-body text-center">
+
+                    <h5>
+
+                        Current Time
+
+                    </h5>
+
+                    <h2 id="liveClock"></h2>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+    const dashboardData = {
+        students: JSON.parse('{{ chart_data.students | tojson }}'),
+        courses: JSON.parse('{{ chart_data.courses | tojson }}'),
+        attendance: JSON.parse('{{ chart_data.attendance | tojson }}'),
+        marks: JSON.parse('{{ chart_data.marks | tojson }}')
+    };
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Edit Course</h2>
+
+<form method="POST">
+
+    <div class="mb-3">
+
+        <label>Course Name</label>
+
+        <input class="form-control" name="course_name" value="{{course[1]}}" required>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label>Course Code</label>
+
+        <input class="form-control" name="course_code" value="{{course[2]}}" required>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label>Credits</label>
+
+        <input type="number" class="form-control" name="credits" value="{{course[3]}}" required>
+
+    </div>
+
+    <button class="btn btn-success">
+
+        Update Course
+
+    </button>
+
+    <a href="/admin/courses" class="btn btn-secondary">
+
+        Cancel
+
+    </a>
+
+</form>
+
+{% endblock %}

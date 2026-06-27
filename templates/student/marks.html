@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow border-0 mb-4">
+
+    <div class="card-header bg-primary text-white">
+
+        <h3>
+
+            <i class="bi bi-mortarboard-fill"></i>
+
+            My Marksheet
+
+        </h3>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="row text-center">
+
+            <div class="col-md-3">
+
+                <div class="card shadow-sm">
+
+                    <div class="card-body">
+
+                        <h5>Total Subjects</h5>
+
+                        <h2>{{ total_subjects }}</h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="card shadow-sm">
+
+                    <div class="card-body">
+
+                        <h5>Total Marks</h5>
+
+                        <h2>{{ total_marks }}</h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="card shadow-sm">
+
+                    <div class="card-body">
+
+                        <h5>Percentage</h5>
+
+                        <h2>{{ percentage }}%</h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="card shadow-sm">
+
+                    <div class="card-body">
+
+                        <h5>GPA</h5>
+
+                        <h2>{{ gpa }}</h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <h4>
+
+            Overall Grade
+
+            <span class="badge bg-success">
+
+                {{ overall_grade }}
+
+            </span>
+
+        </h4>
+
+        <div class="mb-4">
+
+            <a href="/student/marksheet/pdf" class="btn btn-success">
+
+                <i class="bi bi-download"></i>
+
+                Download PDF Marksheet
+
+            </a>
+
+        </div>
+
+        <table id="studentMarksTable" class="table table-hover mt-4">
+
+            <thead>
+
+                <tr>
+
+                    <th>Course</th>
+
+                    <th>Code</th>
+
+                    <th>Marks</th>
+
+                    <th>Grade</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for row in records %}
+
+                <tr>
+
+                    <td>{{ row.course_name }}</td>
+
+                    <td>
+
+                        <span class="badge bg-primary">
+
+                            {{ row.course_code }}
+
+                        </span>
+
+                    </td>
+
+                    <td>{{ row.marks }}</td>
+
+                    <td>
+
+                        {% if row.grade=="A+" %}
+                        <span class="badge bg-success">{{ row.grade }}</span>
+
+                        {% elif row.grade=="A" %}
+                        <span class="badge bg-primary">{{ row.grade }}</span>
+
+                        {% elif row.grade=="B" %}
+                        <span class="badge bg-info">{{ row.grade }}</span>
+
+                        {% elif row.grade=="C" %}
+                        <span class="badge bg-warning text-dark">{{ row.grade }}</span>
+
+                        {% else %}
+                        <span class="badge bg-danger">{{ row.grade }}</span>
+                        {% endif %}
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

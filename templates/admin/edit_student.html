@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Edit Student</h2>
+
+<form method="POST">
+
+    <div class="mb-3">
+
+        <label>Name</label>
+
+        <input class="form-control" name="full_name" value="{{student[1]}}" required>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label>Email</label>
+
+        <input type="email" class="form-control" name="email" value="{{student[2]}}" required>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label>Phone</label>
+
+        <input class="form-control" name="phone" value="{{student[3]}}">
+
+    </div>
+
+    <div class="mb-3">
+
+        <label>Department</label>
+
+        <input class="form-control" name="department" value="{{student[4]}}">
+
+    </div>
+
+    <div class="mb-3">
+
+        <label>Semester</label>
+
+        <input type="number" class="form-control" name="semester" value="{{student[5]}}">
+
+    </div>
+
+    <button class="btn btn-success">
+
+        Update Student
+
+    </button>
+
+    <a href="/admin/students" class="btn btn-secondary">
+
+        Cancel
+
+    </a>
+
+</form>
+
+{% endblock %}

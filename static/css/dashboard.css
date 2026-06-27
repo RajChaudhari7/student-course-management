@@ -1,0 +1,89 @@
+/* Dashboard Background */
+body {
+    background: #f5f7fb;
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+    border: none;
+    border-radius: 18px;
+    color: white;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.dashboard-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Gradients */
+.bg-students {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.bg-courses {
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+}
+
+.bg-attendance {
+    background: linear-gradient(135deg, #fa709a, #fee140);
+}
+
+.bg-marks {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.dashboard-icon {
+    font-size: 3rem;
+    opacity: .25;
+}
+
+/* Glass Card */
+.glass-card {
+    background: rgba(255, 255, 255, .75);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, .4);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+}
+
+/* Profile Avatar */
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #0d6efd;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin: auto;
+}
+
+.card,
+.dashboard-card {
+
+    animation: fadeUp .6s ease;
+
+}
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+        transform: translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+
+}

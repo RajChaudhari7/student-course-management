@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow border-0">
+
+    <div class="card-header bg-primary text-white">
+
+        <h3>
+
+            <i class="bi bi-journal-text"></i>
+
+            Add Student Marks
+
+        </h3>
+
+    </div>
+
+    <div class="card-body">
+
+        <form method="POST">
+
+            <div class="mb-3">
+
+                <label>
+
+                    Student
+
+                </label>
+
+                <select name="student_id" class="form-select" required>
+
+                    <option value="">
+
+                        Choose Student
+
+                    </option>
+
+                    {% for student in students %}
+
+                    <option value="{{ student.id }}">
+
+                        {{ student.full_name }}
+
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>
+
+                    Course
+
+                </label>
+
+                <select name="course_id" class="form-select" required>
+
+                    <option value="">
+
+                        Choose Course
+
+                    </option>
+
+                    {% for course in courses %}
+
+                    <option value="{{ course.id }}">
+
+                        {{ course.course_name }}
+
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>
+
+                    Marks
+
+                </label>
+
+                <input type="number" name="marks" class="form-control" min="0" max="100" required>
+
+            </div>
+
+            <button class="btn btn-success">
+
+                <i class="bi bi-check-circle"></i>
+
+                Save Marks
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
